@@ -144,7 +144,7 @@ Commercial use and resale are strictly prohibited.
 
 ## Statistics
 
-[![bStats](https://bstats.org/signatures/bukkit/Dynamic%20Distance.svg)](https://bstats.org/plugin/bukkit/Dynamic%20Diatance)
+[![bStats](https://bstats.org/signatures/bukkit/Dynamic%20Distance.svg)](https://bstats.org/plugin/bukkit/Dynamic%20Distance)
 
 ## Discord
 
