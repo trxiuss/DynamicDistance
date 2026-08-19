@@ -1,1 +1,157 @@
+# ==============================================================================
+#                      DYNAMIC DISTANCE - MAIN CONFIGURATION
+# ==============================================================================
 
+# Default plugin language.
+# Must match the .yml language file inside the /langs folder.
+language: "en"
+
+# Automatic update checker (Checks for the latest version via Modrinth).
+update_checker: true
+
+# Plugin anonymous usage metrics (bStats).
+metrics: true
+
+engine:
+  # How often performance is evaluated in seconds (must be 1 or higher).
+  check_interval: 2
+
+  # Reaction factor applied when performance degrades (Higher = instantly shrinks during lag spikes).
+  smoothing_factor_degrade: 0.45
+
+  # Smoothing factor applied while performance is recovering (Lower = prevents FPS fluctuations).
+  smoothing_factor_recover: 0.06
+
+  # The duration (in seconds) distances wait before increasing after the server exits a critical lag state.
+  # Provides hysteresis protection to prevent distances from rapidly fluctuating.
+  recovery_cooldown: 15
+
+  # Duration (in seconds) to cache permission and group queries.
+  permission_cache_seconds: 10
+
+  # Whether to display detailed diagnostic logs in the console.
+  debug: false
+
+thresholds:
+  # Target MSPT (50 MSPT = 20 TPS). Optimization begins when exceeding this value.
+  target_mspt: 30.0
+
+  # Critical MSPT threshold. Reaching this value triggers emergency reduction.
+  critical_mspt: 48.0
+
+  # Target TPS value.
+  target_tps: 19.5
+
+  # Critical TPS threshold.
+  critical_tps: 17.0
+
+  # Maximum JVM Heap memory usage percentage that affects the load score.
+  max_memory_percent: 85.0
+
+  # Maximum CPU usage percentage that affects the load score.
+  max_cpu_percent: 85.0
+
+  # Total loaded chunk count considered normal/ideal for the server.
+  target_chunks: 3500
+
+  # Total entity count considered normal/ideal for the server.
+  target_entities: 2000
+
+  # Distances remain at their maximum limit while the stress score is below this value.
+  optimal_load_score: 35.0
+
+  # Distances are reduced to the minimum limit when the stress score reaches this value.
+  critical_load_score: 85.0
+
+distance_limits:
+  view_distance:
+    # Lowest view distance allowed during severe lag.
+    global_min: 3
+    # Highest view distance allowed when the server is healthy.
+    global_max: 16
+    # Initial view distance applied when the plugin starts.
+    default_start: 10
+
+  simulation_distance:
+    # Lowest simulation (tick) distance allowed.
+    global_min: 2
+    # Highest simulation (tick) distance allowed.
+    global_max: 10
+    # Initial simulation distance.
+    default_start: 6
+
+# World-specific minimum and maximum limits.
+# Worlds not defined here will use the global limits above.
+worlds:
+  world_nether:
+    view_min: 3
+    view_max: 8
+    sim_min: 2
+    sim_max: 6
+  world_the_end:
+    view_min: 3
+    view_max: 8
+    sim_min: 2
+    sim_max: 6
+
+modules:
+  afk_limiter:
+    # Drastically lowers the distance for inactive players to save CPU resources.
+    enabled: true
+    # How many seconds of inactivity before a player is considered AFK?
+    afk_seconds: 60
+    # View distance assigned to AFK players.
+    afk_view_distance: 3
+    # Simulation distance assigned to AFK players.
+    afk_sim_distance: 2
+
+  speed_limiter:
+    # Reduces chunk loading strain caused by fast-moving players (e.g. using Elytra).
+    enabled: true
+    # Speed threshold (Blocks / Second).
+    speed_threshold: 18.0
+    # Simulation distance assigned to fast-moving players.
+    speed_sim_distance: 3
+
+# Bonus distances based on rank and permission groups.
+# Supports LuckPerms groups and standard 'group.<name>' permissions.
+groups:
+  default:
+    priority: 0
+    bonus_view_distance: 0
+    bonus_sim_distance: 0
+    bypass_dynamic: false
+    bypass_afk: false
+    bypass_speed: false
+  vip:
+    priority: 10
+    bonus_view_distance: 1
+    bonus_sim_distance: 0
+    bypass_dynamic: false
+    bypass_afk: false
+    bypass_speed: false
+  vip_plus:
+    priority: 20
+    bonus_view_distance: 2
+    bonus_sim_distance: 1
+    bypass_dynamic: false
+    bypass_afk: false
+    bypass_speed: false
+  mvp:
+    priority: 30
+    bonus_view_distance: 3
+    bonus_sim_distance: 1
+    bypass_dynamic: false
+    bypass_afk: false
+    bypass_speed: false
+  admin:
+    priority: 100
+    bonus_view_distance: 4
+    bonus_sim_distance: 2
+    bypass_dynamic: true
+    bypass_afk: false
+    bypass_speed: true
+
+storage:
+  # Auto-save interval (in minutes) for custom player limits.
+  auto_save_interval_minutes: 5
