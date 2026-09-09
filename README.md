@@ -150,3 +150,8 @@ Commercial use and resale are strictly prohibited.
 
 [![Discord](https://cdn.modrinth.com/data/cached_images/4de86371cc7bcf3818924b198f31baacc304700f.png)
 ](https://discord.gg/62TzJBpm6C)
+
+---
+<div align="center">
+  <sub>Built with ❤️ for developers and creators worldwide.</sub>
+</div>
