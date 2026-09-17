@@ -4,17 +4,17 @@ import com.dynamicdistance.DynamicDistance;
 import org.bukkit.World;
 import org.bukkit.entity.Player;
 
-public class FoliaAdapter implements PlatformAdapter {
+public class ModernSimAdapter implements PlatformAdapter {
 
     private final DynamicDistance plugin;
 
-    public FoliaAdapter(DynamicDistance plugin) {
+    public ModernSimAdapter(DynamicDistance plugin) {
         this.plugin = plugin;
     }
 
     @Override
     public String getPlatformName() {
-        return "Folia Multi-Threaded Regional Platform";
+        return "Paper/Purpur 1.18.2+ Dual Distance Engine";
     }
 
     @Override
