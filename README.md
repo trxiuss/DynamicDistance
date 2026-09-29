@@ -142,10 +142,6 @@ Requires **PlaceholderAPI** to be installed.
 Released under **CC BY-NC-SA 4.0** (Attribution-NonCommercial-ShareAlike 4.0 International).
 Commercial use and resale are strictly prohibited.
 
-## Statistics
-
-[![bStats](https://bstats.org/signatures/bukkit/Dynamic%20Distance.svg)](https://bstats.org/plugin/bukkit/Dynamic%20Distance)
-
 ## Discord
 
 [![Discord](https://cdn.modrinth.com/data/cached_images/4de86371cc7bcf3818924b198f31baacc304700f.png)
